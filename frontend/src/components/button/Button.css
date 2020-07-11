@@ -1,0 +1,8 @@
+#button {
+  background-color: #d94036;
+  background: linear-gradient(#d64f46, #d94036);
+  border: 1px solid #d94036;
+  border-radius: 4px;
+  color: #ffffff;
+  overflow: hidden;
+}

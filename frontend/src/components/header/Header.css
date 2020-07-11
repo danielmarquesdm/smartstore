@@ -1,0 +1,37 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#header #logo {
+  max-height: 100px;
+}
+
+#link-to-cart {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+#link-to-cart :hover {
+  opacity: 0.7;
+}
+
+#link-to-cart div {
+  text-align: right;
+  margin-right: 10px;
+}
+
+#link-to-cart div strong {
+  display: block;
+  font-size: 20px;
+  color: #d94036;
+}
+
+#link-to-cart div span {
+  font-size: 16px;
+  color: hsl(4, 67%, 57%);
+}

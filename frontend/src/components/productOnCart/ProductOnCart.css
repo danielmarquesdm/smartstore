@@ -1,0 +1,24 @@
+.produto-adicionado {
+  background-color: #ececec;
+  max-height: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+#conteudo-produto {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 120px;
+  width: 350px;
+  align-items: center;
+}
+
+.produto-adicionado img {
+  height: 100px;
+  width: 100px;
+  border-radius: 4px;
+}
+
+.produto-adicionado #conteudo {
+  margin-right: 20px;
+}
