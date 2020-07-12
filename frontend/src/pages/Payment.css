@@ -1,9 +1,63 @@
-form {
-  display: grid;
+#titulo {
+  text-align: left;
+  margin-top: 40px;
 }
+
+.adress {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
 form input {
   height: 60px;
   font-size: 16px;
   border: 1px solid #ececec;
   border-radius: 4px;
+  padding: 10px;
+}
+
+form #label {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.shipping {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.shipping select {
+  height: 30px;
+  border-radius: 4px;
+  margin-top: 30px;
+  border: 1px solid #ececec;
+  padding: 10px;
+}
+
+.payment {
+  display: grid;
+  grid-template-columns:
+    1fr
+    1fr 1fr
+    1fr;
+  margin-top: 50px;
+}
+
+form Button {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  height: 40px;
+  width: 400px;
+  font-size: 20px;
+  float: right;
 }

@@ -1,9 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './Cart.css';
+import formatPrice from '../util/formatPrice';
 import Button from '../components/button/Button';
+import {
+  MdRemoveCircleOutline,
+  MdAddCircleOutline,
+  MdDelete,
+} from 'react-icons/md';
 
-export default function Cart({ history }) {
+function Cart({ history, cart, total, dispatch }) {
   async function handlePayment() {
     history.push('/pagamento');
   }
@@ -11,35 +18,48 @@ export default function Cart({ history }) {
   return (
     <div className="cart-container">
       <ul>
-        <li>
-          <img
-            src="https://images-americanas.b2w.io/produtos/01/00/img/360564/1/360564168_1GG.jpg"
-            alt="Daniel"
-          />
-          <strong>Produto 1</strong>
-          <p>Descricao do produto</p>
-          <p>R$ 3.490,00</p>
-        </li>
-        <li>
-          <img
-            src="https://images-americanas.b2w.io/produtos/01/00/img/360622/6/360622647_1SZ.jpg"
-            alt="Daniel"
-          />
-          <strong>Produto 1</strong>
-          <p>Descricao do produto</p>
-          <p>R$ 4.590,90</p>
-        </li>
+        {cart.map((product) => (
+          <li key={product._id}>
+            <img src={product.image} alt={product.name} />
+            <strong>{product.name}</strong>
+            <p>{product.description}</p>
+            <span>{product.price}</span>
+            <div>
+              <button
+                type="button"
+                onClick={() =>
+                  dispatch({ type: 'DECREMENT_AMOUNT', id: product._id })
+                }
+              >
+                <MdRemoveCircleOutline size={20} color="#d94036" />
+              </button>
+              <input type="number" readOnly value={product.amount} />
+              <button
+                type="button"
+                onClick={() =>
+                  dispatch({ type: 'INCREMENT_AMOUNT', id: product._id })
+                }
+              >
+                <MdAddCircleOutline size={20} color="#d94036" />
+              </button>
+            </div>
+            <strong>{product.subtotal}</strong>
+            <button
+              id="buttonDelete"
+              type="button"
+              onClick={() =>
+                dispatch({ type: 'REMOVE_FROM_CART', id: product._id })
+              }
+            >
+              <MdDelete id="iconDelete" size={20} color="#d94036" />
+            </button>
+          </li>
+        ))}
       </ul>
       <footer>
-        <div id="subtotal">
-          <h3>Subtotal</h3>
-          <h3>R$ 8.080,90</h3>
-          <h3>Envio</h3>
-          <h3>R$ 19,90</h3>
-        </div>
-        <div id="total">
-          <h3>Total</h3>
-          <h3>R$ 8.100,80</h3>
+        <div>
+          <span>Total</span>
+          <strong>{total}</strong>
         </div>
         <Button
           type="button"
@@ -50,3 +70,17 @@ export default function Cart({ history }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  cart: state.cart.map((product) => ({
+    ...product,
+    subtotal: formatPrice(product.price * product.amount),
+  })),
+  total: formatPrice(
+    state.cart.reduce((total, product) => {
+      return total + product.price * product.amount;
+    }, 0)
+  ),
+});
+
+export default connect(mapStateToProps)(Cart);

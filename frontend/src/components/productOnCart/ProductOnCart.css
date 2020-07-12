@@ -20,5 +20,11 @@
 }
 
 .produto-adicionado #conteudo {
+  display: flex;
+  flex-direction: column;
   margin-right: 20px;
+}
+
+.produto-adicionado Button {
+  height: 30px;
 }

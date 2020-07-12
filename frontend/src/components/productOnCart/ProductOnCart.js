@@ -1,27 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './ProductOnCart.css';
 import Button from '../../components/button/Button';
 
-export default function ProductOnCart({ onCart }) {
+function ProductOnCart({ cart }) {
   return (
     <div className="produto-adicionado">
-      <div id="conteudo-produto">
-        <img
-          src="https://images-americanas.b2w.io/produtos/01/00/img/360622/6/360622647_1SZ.jpg"
-          alt="produto"
-        />
-        <div id="conteudo">
-          <strong>Produto 1</strong>
-          <span>R$ 3.490,90</span>
-        </div>
-        <Button
-          id="button"
-          type="button"
-          value="Ver Carrinho"
-          clickAction={onCart}
-        />
-      </div>
+      {cart.map((product) => (
+        <li key={product._id} id="conteudo-produto">
+          <img src={product.image} alt={product.name} />
+          <div id="conteudo">
+            <strong>{product.name}</strong>
+            <span>{product.price}</span>
+          </div>
+          <Link to="/carrinho">
+            <Button id="button" type="button" value="Ver Carrinho" />
+          </Link>
+        </li>
+      ))}
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  cart: state.cart.slice(0, 1),
+});
+
+export default connect(mapStateToProps)(ProductOnCart);

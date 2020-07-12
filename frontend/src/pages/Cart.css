@@ -1,71 +1,74 @@
 .cart-container {
   margin: 0 auto;
-  text-align: center;
-  display: grid;
-  justify-content: center;
+  padding: 50px 0;
 }
 
 .cart-container ul {
   list-style: none;
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 30px;
-  margin-top: 50px;
 }
 
 .cart-container ul li {
-  display: flex;
-  justify-content: space-between;
-}
-
-.cart-container ul li,
-#subtotal,
-#total {
-  color: #5c5a5a;
-  display: flex;
-  height: 240px;
-  flex-direction: row;
-  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 2px solid #e9e6e6;
+  padding: 30px;
   align-items: center;
-}
-
-.cart-container ul li,
-#subtotal {
-  border-bottom: 3px solid #ececec;
+  justify-content: center;
 }
 
 .cart-container ul li img {
-  height: 200px;
-  margin-left: 20px;
+  height: 100px;
 }
 
-#subtotal {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-content: space-around;
-  width: 700px;
-  height: 120px;
-  text-align: right;
-  margin-left: 380px;
-}
-
-#total {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 120px;
-  align-content: space-around;
-  width: 700px;
-  text-align: right;
-  margin-left: 380px;
-}
-.cart-container Button {
+.cart-container ul li div {
   display: flex;
+  padding: 5px;
+}
+
+.cart-container ul li div input {
+  border: 1px solid #e9e6e6;
+  padding: 5px;
+  margin: 10px;
+  width: 60px;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+footer {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
   float: right;
-  margin-bottom: 20px;
-  height: 40px;
-  width: 400px;
+}
+
+footer div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  float: right;
+  margin-top: 20px;
+}
+
+strong,
+p,
+span {
+  font-size: 15px;
+}
+
+footer div span {
   font-size: 20px;
-  align-content: space-around;
+}
+
+footer div strong {
+  font-size: 20px;
+}
+
+footer Button {
   justify-content: center;
   align-items: center;
+  height: 40px;
+  width: 400px;
+  margin-top: 20px;
 }
