@@ -5,6 +5,7 @@ import './Main.css';
 import api from '../services/api';
 import ProductOnCart from '../components/productOnCart/ProductOnCart';
 import Button from '../components/button/Button';
+import formatPrice from '../util/formatPrice';
 
 class Main extends Component {
   state = {
@@ -37,7 +38,7 @@ class Main extends Component {
               <footer>
                 <strong>{product.name}</strong>
                 <p>{product.description}</p>
-                <span>{product.price}</span>
+                <span>{formatPrice(product.price)}</span>
                 <Button
                   type="button"
                   value="Adicionar ao Carrinho"

@@ -1,9 +1,21 @@
-#titulo {
+#titulo,
+h3 {
   text-align: left;
   margin-top: 40px;
+  margin-bottom: 30px;
 }
 
-.adress {
+.client {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.client input {
+  height: 40px;
+}
+
+.address {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
@@ -14,7 +26,7 @@
 }
 
 form input {
-  height: 60px;
+  height: 40px;
   font-size: 16px;
   border: 1px solid #ececec;
   border-radius: 4px;
@@ -27,37 +39,82 @@ form #label {
 }
 
 .shipping {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  margin-top: 30px;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   align-self: center;
 }
 
 .shipping select {
-  height: 30px;
+  height: 40px;
+  width: 70%;
   border-radius: 4px;
   margin-top: 30px;
   border: 1px solid #ececec;
   padding: 10px;
+  float: left;
+  font-size: 15px;
+}
+
+.shipping #frete {
+  font-size: 18px;
+  font-weight: bold;
+  align-content: center;
+  margin-right: 20px;
+  margin-top: 30px;
 }
 
 .payment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.payment select {
+  height: 40px;
+  width: 70%;
+  border: 1px solid #ececec;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.cartao {
   display: grid;
-  grid-template-columns:
-    1fr
-    1fr 1fr
-    1fr;
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+.cartao div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.cartao strong {
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.boleto {
+  display: grid;
+  margin-top: 20px;
+}
+
+.boleto strong {
+  font-size: 18px;
+  text-align: left;
+  height: 60px;
 }
 
 form Button {
   margin-top: 40px;
   margin-bottom: 50px;
   height: 40px;
-  width: 400px;
+  width: 200px;
   font-size: 20px;
-  float: right;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }

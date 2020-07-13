@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import './ProductOnCart.css';
 import Button from '../../components/button/Button';
+import formatPrice from '../../util/formatPrice';
 
 function ProductOnCart({ cart }) {
   return (
@@ -13,7 +14,7 @@ function ProductOnCart({ cart }) {
           <img src={product.image} alt={product.name} />
           <div id="conteudo">
             <strong>{product.name}</strong>
-            <span>{product.price}</span>
+            <span>{formatPrice(product.price)}</span>
           </div>
           <Link to="/carrinho">
             <Button id="button" type="button" value="Ver Carrinho" />

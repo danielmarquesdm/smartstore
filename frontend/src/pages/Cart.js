@@ -23,7 +23,7 @@ function Cart({ history, cart, total, dispatch }) {
             <img src={product.image} alt={product.name} />
             <strong>{product.name}</strong>
             <p>{product.description}</p>
-            <span>{product.price}</span>
+            <span>{formatPrice(product.price)}</span>
             <div>
               <button
                 type="button"

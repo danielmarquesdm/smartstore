@@ -1,20 +1,3 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const app = require('./app');
 
-const routes = require('./routes');
-
-const server = express();
-
-mongoose.connect(
-  'mongodb+srv://smartstore:smartstore@cluster0-rlvhh.gcp.mongodb.net/smartstore?retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
-
-server.use(cors());
-server.use(express.json());
-server.use(routes);
-server.listen(3333);
+app.listen(3333);
